@@ -3,7 +3,7 @@
 An interactive sorting algorithm visualizer built with React + TypeScript.  
 It animates how different sorting algorithms operate on an array of numbers and tracks comparisons/swaps for each sort
 
-![Screenshot](public\screenshot.png) 
+![Screenshot](public/screenshot.png) 
 
 ---
 
