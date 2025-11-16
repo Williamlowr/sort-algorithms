@@ -24,10 +24,10 @@ export default function SortVisualizer() {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4 mt-16 bg-slate-800/60 bg-gradient-to-r from-slate-700/20 to-slate-800/60 rounded-2xl border border-zinc-800">
-      <h2 className="text-xl font-semibold text-black ">
+      <h2 className="text-xl font-semibold text-white ">
         Sort Algorithm Visualizer
       </h2>
-      <h3 className="text-md font-medium mb-2 text-black">
+      <h3 className="text-md font-medium mb-2 text-white">
         Made as a demo for my portfolio site{" "}
         <a
           href="https://william-lowrimore.com/"

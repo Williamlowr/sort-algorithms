@@ -28,7 +28,7 @@ export default function Controls(props: {
   return (
     <div className="grid gap-3 grid-cols-4">
       <label className="flex items-center gap-2">
-        <span className="w-20 text-lg">Algorithm:</span>
+        <span className="w-20 text-lg text-white">Algorithm:</span>
         <select
           value={algorithm}
           onChange={(e) => setAlgorithm(e.target.value as Algorithms)}
@@ -44,7 +44,7 @@ export default function Controls(props: {
       </label>
 
       <label className="flex items-center gap-3 pl-8 pr-12">
-        <span className=" w-20 text-md whitespace-nowrap">Size (5-128):</span>
+        <span className=" w-20 text-md whitespace-nowrap text-white">Size (5-128):</span>
         <input
           type="number"
           min={MIN_SIZE}
@@ -60,7 +60,7 @@ export default function Controls(props: {
       </label>
 
       <label className="flex items-center gap-2 pl-4 pr-8">
-        <span className="text-md whitespace-nowrap ">Delay (5-256ms):</span>
+        <span className="text-md whitespace-nowrap text-white">Delay (5-256ms):</span>
         <input
           type="number"
           min={MIN_SPEED_MS}
