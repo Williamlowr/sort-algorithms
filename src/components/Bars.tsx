@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Bars({
   values,
   active,
@@ -27,20 +25,31 @@ export default function Bars({
 
           // check if this bar is involved in the current operation
           const operation = active.operation;
-          const isCompareActive = operation === "compare" && index === active.i;
-          const isSwapActive =
-            (operation === "swap" || operation === "write") &&
+
+          const isCompareActive =
+            operation === "compare" &&
             (index === active.i || index === active.j);
+
+          const isSwapActive =
+            operation === "swap" && (index === active.i || index === active.j);
+
+          const isWriteActive =
+            operation === "write" && (index === active.i || index === active.j);
+
           const isPivotActive =
             typeof active.pivot === "number" && index === active.pivot;
-          const isActive = isCompareActive || isSwapActive || isPivotActive;
+
+          const isActive =
+            isCompareActive || isSwapActive || isWriteActive || isPivotActive;
 
           let color;
 
           if (isPivotActive) {
             color = "bg-emerald-400"; // pivot green
-          } else if (operation === "swap" || operation === "write") {
-            color = "bg-fuchsia-400"; // swap/write pink
+          } else if (operation === "swap") {
+            color = "bg-fuchsia-400"; // swap = pink
+          } else if (operation === "write") {
+            color = "bg-amber-400"; // write = amber
           } else if (operation === "compare") {
             color = "bg-sky-400"; // compare blue
           } else {

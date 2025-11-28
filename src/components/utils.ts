@@ -1,6 +1,6 @@
-// Clamp n between lo and hi
-export const clamp = (n: number, lo: number, hi: number) =>
-  Math.max(lo, Math.min(hi, n));
+// Clamp n between low and high
+export const clamp = (n: number, low: number, high: number) =>
+  Math.max(low, Math.min(high, n));
 // Sleep for ms milliseconds between operations
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 

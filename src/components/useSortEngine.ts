@@ -88,7 +88,6 @@ export function useSortEngine(initial: number[]) {
           setStats((p) => ({
             ...p,
             writes: p.writes + 1,
-            swaps: p.swaps + 1,
           }));
         } else if (s.type === "pivot") {
           currentPivot = s.i;

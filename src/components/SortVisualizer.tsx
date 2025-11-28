@@ -65,8 +65,8 @@ export default function SortVisualizer() {
           </span>
 
           {algorithm === "merge" ? (
-            <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 bg-fuchsia-500/30 text-fuchsia-200 border border-fuchsia-400/70">
-              <span className="w-2 h-2 rounded-full bg-fuchsia-400" />
+            <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 bg-amber-500/30 text-amber-200 border border-amber-400/70">
+              <span className="w-2 h-2 rounded-full bg-amber-400" />
               Writes: <strong className="tabular-nums">{view.stats.writes}</strong>
             </span>
           ) : (
@@ -75,12 +75,13 @@ export default function SortVisualizer() {
               Swaps: <strong className="tabular-nums">{view.stats.swaps}</strong>
             </span>
           )}
-
-          <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 bg-emerald-500/30 text-emerald-200 border border-emerald-500/30">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            Pivots:{" "}
-            <strong className="tabular-nums">{view.stats.pivots}</strong>
-          </span>
+          {algorithm === "quick" && (
+            <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 bg-emerald-500/30 text-emerald-200 border border-emerald-500/30">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              Pivots:{" "}
+              <strong className="tabular-nums">{view.stats.pivots}</strong>
+            </span>
+          )}
         </div>
       </div>
     </div>
