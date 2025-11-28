@@ -42,12 +42,11 @@ export function useSortEngine(initial: number[]) {
     [array, isSorting, stats]
   );
 
-  const play = useCallback(
+   const play = useCallback(
     async (algorithm: Algorithms, speedMs: number) => {
       if (isSorting) return;
       setIsSorting(true);
 
-      // reset stats and active operation between sorts
       setStats({ compares: 0, swaps: 0, writes: 0, pivots: 0 });
       active.current = {};
 
@@ -66,11 +65,6 @@ export function useSortEngine(initial: number[]) {
           };
           setStats((p) => ({ ...p, compares: p.compares + 1 }));
         } else if (s.type === "swap") {
-          setArray((prev) => {
-            const a = prev.slice();
-            [a[s.i], a[s.j]] = [a[s.j], a[s.i]];
-            return a;
-          });
           active.current = {
             i: s.i,
             j: s.j,
@@ -78,6 +72,18 @@ export function useSortEngine(initial: number[]) {
             operation: "swap",
           };
           setStats((p) => ({ ...p, swaps: p.swaps + 1 }));
+          
+          await sleep(speedMs);
+          
+          setArray((prev) => {
+            const a = prev.slice();
+            [a[s.i], a[s.j]] = [a[s.j], a[s.i]];
+            return a;
+          });
+          
+          active.current = { pivot: currentPivot };
+
+          continue;
         } else if (s.type === "write") {
           setArray((prev) => {
             const a = prev.slice();

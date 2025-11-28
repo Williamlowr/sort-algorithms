@@ -9,25 +9,19 @@ export const insertion: AlgoGenerator = function* (arr) {
 
     while (j >= 0) {
       // Compare with the element before it
-      yield { type: "compare", i: j, j: i } satisfies Step;
+      yield { type: "compare", i: j, j: j + 1 } satisfies Step;
       // If out of order,
       if (array[j] > key) {
-        // Shift element to the right
-        array[j + 1] = array[j];
-        // Yield and write; visualize writes
-        yield { type: "write", i: j + 1, value: array[j + 1] } as Step;
+        // Swap elements (shift element to the right)
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+        // Yield and swap; visualize swaps
+        yield { type: "swap", i: j, j: j + 1 } as Step;
         j--;
       } else {
         break;
       }
     }
-    // Place key in its correct location
-    if (array[j + 1] !== key) {
-      // Only write if it's actually changing
-      array[j + 1] = key;
-      yield { type: "write", i: j + 1, value: key } as Step;
-    }
-  }
+  } 
   // Yield the final sorted array
   yield { type: "done" };
   return array;
