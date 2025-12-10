@@ -5,6 +5,8 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <SortVisualizer />
+    <div className="bg-slate-800/90 min-h-screen flex items-start justify-center">
+      <SortVisualizer />
+    </div>
   </React.StrictMode>
 );
